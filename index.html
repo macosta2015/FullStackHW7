@@ -7,20 +7,31 @@
     <title>Document</title>
 
     <h1>
-        Hello World 
+        Hello World3
     </h1>
     <script>
     var APIKey = "24956411e34fc55da6781bc2185e43c8";
-    var city;
+    var city = "Miami"
+
+
     //How to make an API call
     // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
     
     //Base URL for calling the Current Weather Data API
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-    fetch(queryURL)
-    
-    https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}
-    
+    // var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+
+
+    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=" + APIKey;
+    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=" + APIKey
+
+    // fetch(queryURL)
+    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Miami&appid=" + APIKey)
+    .then(response => response.json())
+    .then (data => console.log(data))
+
+    .catch(err => alert("Wrong city name"))
+
+    // https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}
     </script>
     
 </head>
