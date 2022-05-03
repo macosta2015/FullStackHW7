@@ -41,13 +41,19 @@
     }
 
     var nameInput = document.getElementById('uname');
-    document.querySelector('form.input-group').addEventListener('submit', function (e) {
+
+    
+    document.querySelector('form.input-group').addEventListener('submit', function readingHTML (e) {
     //prevent the normal submission of the form
     e.preventDefault();
 
     console.log('New Input: ')
     console.log(nameInput.value);    
-});
+
+    testVariable = nameInput.value;
+    console.log('New Variable: ' + testVariable)
+    });
+
 
 
     let cityInput = document.querySelector("#uname");
