@@ -33,16 +33,35 @@
 
     <script>
     console.log('HI')
-    let uname = document.querySelector("#uname");
+
+
     function send() {
+        console.log('Where are printing: ')
         console.log(uname.value);
     }
-        console.log('END')
+
+    var nameInput = document.getElementById('uname');
+    document.querySelector('form.input-group').addEventListener('submit', function (e) {
+    //prevent the normal submission of the form
+    e.preventDefault();
+
+    console.log('New Input: ')
+    console.log(nameInput.value);    
+});
+
+
+    let cityInput = document.querySelector("#uname");
+    console.log('This is the city input: ' + cityInput.value)
+    
+
+    console.log('END')
 
     
         // Running API code
         var APIKey = "24956411e34fc55da6781bc2185e43c8";
         var city = "California"
+
+
         // fetch(queryURL)
         fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey)
         .then(response => response.json())
