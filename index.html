@@ -56,7 +56,7 @@
     console.log('New Variable: ' + testVariable)
     localStorage.setItem('name', 'Obaseki Nosa');
     // localStorage.setItem('name2', 'California');
-    localStorage.setItem('name2', testVariable);
+        localStorage.setItem('name2', 'California');
 
     document.getElementById("demo").innerHTML = localStorage.getItem("name");
     });
@@ -77,6 +77,9 @@
     .then (data => console.log(data))
         
     .catch(err => alert("Wrong city name"))
+
+
+    .then (data => console.log(data))
 
 
 
