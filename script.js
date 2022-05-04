@@ -1,63 +1,44 @@
-function send() {
-    console.log('Where are printing: ')
-    console.log(uname.value);
-}
-
+//Declaring the Global variables
 var nameInput = document.getElementById('uname');
-console.log('Is this printing out: '+ nameInput)
 
+//This code is to get the local storage and have it saved when refreshing
+document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 
 //Function
 document.querySelector('form.input-group').addEventListener('submit', function (e) {
-//prevent the normal submission of the form
-e.preventDefault();   
-testVariable = nameInput.value;
-console.log('New Variable: ' + testVariable)
-localStorage.setItem('name2', testVariable);
-
-document.getElementById("demo").innerHTML = localStorage.getItem("name");
-
-changeAPI()
+    e.preventDefault(); 
+    //Setting the local storage for the variable that was read
+    localStorage.setItem('name3', nameInput.value);
+    changeAPI()
+    printingValuesHTML()
 });
 
-var cityInputName = document.getElementById("demo2").innerHTML = localStorage.getItem("name2");
-console.log('cityInputName is equal to: ' + cityInputName)
+//Function
+function send() {
+    //Setting the local storage for the variable that was read
+    localStorage.setItem('name3', nameInput.value);
+    changeAPI()
+    printingValuesHTML()
+}
 
+//Function
+function printingValuesHTML (){
+// Set Item
+localStorage.setItem("Country Name", nameInput.value);
+// Retrieve
+document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
+}
 
-
-
-var button = document.querySelector('.button');
-var inputValue = document.querySelector('.inputValue')
-var name = document.querySelector('.name')
-var desc = document.querySelector('.desc')
-var temp = document.querySelector('.temp')
-
-console.log('button value is: ' + button)
-
-
-// Running API code
-var APIKey = "24956411e34fc55da6781bc2185e43c8";
-var city = cityInputName
-
-// button.addEventListener('click', function(){
-
-    cityInputName = 'Florida'
-
-function changeAPI(){ 
-
+// Function-Running API code
+function changeAPI(){
+    var APIKey = "24956411e34fc55da6781bc2185e43c8";
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
     .then(response => response.json())
     .then (data => console.log(data))
-    
     .catch(err => alert("Wrong city name"))
 }
 
-// Running code that returns plenty of information
-// // fetch(queryURL)
-// fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey)
-// .then(response => response.json())
-// .then (data => console.log(data))
-// .catch(err => alert("Wrong city name"))
+
 
 
 
