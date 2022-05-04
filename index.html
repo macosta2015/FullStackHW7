@@ -55,8 +55,7 @@
     testVariable = nameInput.value;
     console.log('New Variable: ' + testVariable)
     localStorage.setItem('name', 'Obaseki Nosa');
-    // localStorage.setItem('name2', 'California');
-        localStorage.setItem('name2', 'California');
+    localStorage.setItem('name2', 'California');
 
     document.getElementById("demo").innerHTML = localStorage.getItem("name");
     });
@@ -70,16 +69,13 @@
     // Running API code
     var APIKey = "24956411e34fc55da6781bc2185e43c8";
     // var city = "Miami"
-    var city = cityInputName
+    var city = "Miami"
     // fetch(queryURL)
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey)
     .then(response => response.json())
     .then (data => console.log(data))
         
     .catch(err => alert("Wrong city name"))
-
-
-    .then (data => console.log(data))
 
 
 
