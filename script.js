@@ -41,7 +41,6 @@ function changeAPI(){
 
 //Connecting specigic variables to API
 
-    // var input =   document.getElementById("inputText").innerHTML
     var input = document.querySelector('.input_text');
     var main = document.querySelector('#name');
     var temp = document.querySelector('.temp');
