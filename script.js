@@ -41,7 +41,6 @@ function changeAPI(){
 
 //Connecting specigic variables to API
 
-    // var input =   document.getElementById("inputText").innerHTML
     var input = document.querySelector('.input_text');
     var main = document.querySelector('#name');
     var temp = document.querySelector('.temp');
@@ -49,8 +48,9 @@ function changeAPI(){
     var clouds = document.querySelector('.clouds');
     var button= document.querySelector('.submit');
 
+
     button.addEventListener('click', function(name){
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid=' + APIKey)
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid=50a7aa80fa492fa92e874d23ad061374')
         .then(response => response.json())
         .then(data => {
           var tempValue = data['main']['temp'];
