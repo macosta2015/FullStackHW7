@@ -26,15 +26,92 @@
         <p id="demo"></p>
         </p>
 
+        <h2 id="tempValue"> </h2>
+        <h2 id="nameValue"> </h2>
+        <h2 id="descValue"> </h2>
+
+
     <!-- This is the code for inputing informatio -->
-    <form class="input-group mb-9">
-        <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">City Name</span>
-        </div>
-        <input type="text" placeholder="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="uname">
-        <input type="button"value="submit" onclick="send()" />
-    </form>
-    
+    <div class="col-sm-12 col-md-11 m-5">
+      <form class="input-group mb-9">
+          <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">City Name</span>
+          </div>
+          <input type="text" placeholder="... enter the city name." class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="uname">
+          <input type="button"value="submit" onclick="send()" />
+      </form>
+    </div>
+
+    <div class="row g-4 m-5">
+      <div class="col-sm-8 col-md-12">
+        <!-- This is what allows us to have a column and that is divided. -->
+          <div class="row">
+            <div class="col-sm-2">
+              <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-light">A simple light list group item</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-dark">A simple dark list group item</a>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div class="card" >
+                  <h5 class="card-title" >Current city: </h5>
+                    <ul class="list-group list-group-flushbg-primary text-white">
+                    <li class="list-group-item bg-primary text-white">An item</li>
+                    <li class="list-group-item bg-primary text-white">A second item</li>
+                    <li class="list-group-item bg-primary text-white">A third item</li>
+                  </ul>
+                </div>
+              </div>
+                <div class="card-body" >
+                  <h5 class="card-title" >Special title treatment</h5>
+                    <ul class="list-group list-group-flushbg-primary text-white">
+                    <li class="list-group-item bg-primary text-white">An item</li>
+                    <li class="list-group-item bg-primary text-white">A second item</li>
+                    <li class="list-group-item bg-primary text-white">A third item</li>
+                  </ul>
+                </div>
+                <div class="card-body" >
+                  <h5 class="card-title" >Special title treatment</h5>
+                    <ul class="list-group list-group-flushbg-primary text-white">
+                    <li class="list-group-item bg-primary text-white">An item</li>
+                    <li class="list-group-item bg-primary text-white">A second item</li>
+                    <li class="list-group-item bg-primary text-white">A third item</li>
+                  </ul>
+                </div>
+                <div class="card-body" >
+                  <h5 class="card-title" >Special title treatment</h5>
+                    <ul class="list-group list-group-flushbg-primary text-white">
+                    <li class="list-group-item bg-primary text-white">An item</li>
+                    <li class="list-group-item bg-primary text-white">A second item</li>
+                    <li class="list-group-item bg-primary text-white">A third item</li>
+                  </ul>
+                </div>
+                <div class="card-body" >
+                  <h5 class="card-title" >Special title treatment</h5>
+                    <ul class="list-group list-group-flushbg-primary text-white">
+                    <li class="list-group-item bg-primary text-white">An item</li>
+                    <li class="list-group-item bg-primary text-white">A second item</li>
+                    <li class="list-group-item bg-primary text-white">A third item</li>
+                  </ul>
+                </div>
+                <div class="card-body" >
+                  <h5 class="card-title" >Special title treatment</h5>
+                    <ul class="list-group list-group-flushbg-primary text-white">
+                    <li class="list-group-item bg-primary text-white">An item</li>
+                    <li class="list-group-item bg-primary text-white">A second item</li>
+                    <li class="list-group-item bg-primary text-white">A third item</li>
+                  </ul>
+                </div>  
+          </div>
+      </div>
+
 
 
     <!-- Optional JavaScript -->
@@ -44,27 +121,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
-
-<!-- Connecting API -->
-    <div class="header">
-        <h4>OpenWeatherMap API</h1>
-        <p>Enter any city name in the input box below to get the data</p>
-      </div>
-    
-      <div class="input">
-        <input type="text" placeholder="Enter the city" class="input_text">
-        <input type="submit" value="Submit" class="submit">
-      </div>
-    </div>
-  
-    <!-- <div class="container"> -->
-      <div class="card">
-        <h1 class="name" id="name"></h1>
-        <p class="temp"></p>
-        <p class="clouds"></p>
-        <p class="desc"></p>
-      </div>
-    <!-- </div> -->
 
 
 </body>
