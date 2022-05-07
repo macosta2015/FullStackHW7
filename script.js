@@ -12,6 +12,7 @@ document.querySelector('form.input-group').addEventListener('submit', function (
     localStorage.setItem('name3', nameInput.value);
     changeAPI()
     printingValuesHTML()
+    readUserInput()
 });
 
 //Function
@@ -20,6 +21,7 @@ function send() {
     localStorage.setItem('name3', nameInput.value);
     changeAPI()
     printingValuesHTML()
+    readUserInput()
 }
 
 //Function
@@ -37,8 +39,7 @@ function changeAPI(){
     .then(response => response.json())
     .then (data => console.log(data))
     .catch(err => alert("Wrong city name"))
-
-
+}
 //Connecting specigic variables to API
 
     var input = document.querySelector('.input_text');
@@ -49,8 +50,9 @@ function changeAPI(){
     var button= document.querySelector('.submit');
 
 
-    button.addEventListener('click', function(name){
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&appid=50a7aa80fa492fa92e874d23ad061374')
+    https://www.youtube.com/watch?v=6trGQWzg2AI
+    function readUserInput(){
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+ uname.value +'&appid=50a7aa80fa492fa92e874d23ad061374')
         .then(response => response.json())
         .then(data => {
           var tempValue = data['main']['temp'];
@@ -63,13 +65,14 @@ function changeAPI(){
           input.value ="";
         
         })
-        
+
         .catch(err => alert("Wrong city name!"));
-        })
+        console.log("We are prenting the wrong values: " + uname.value)
+        }
 
 
 
-}
+
 
 
 
