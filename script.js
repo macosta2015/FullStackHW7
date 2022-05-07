@@ -2,6 +2,7 @@
 var nameInput = document.getElementById('uname');
 var APIKey = "24956411e34fc55da6781bc2185e43c8";
 
+
 //This code is to get the local storage and have it saved when refreshing
 document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 
@@ -12,7 +13,7 @@ document.querySelector('form.input-group').addEventListener('submit', function (
     localStorage.setItem('name3', nameInput.value);
     changeAPI()
     printingValuesHTML()
-    readUserInput()
+    printingValues()
 });
 
 //Function
@@ -21,15 +22,19 @@ function send() {
     localStorage.setItem('name3', nameInput.value);
     changeAPI()
     printingValuesHTML()
-    readUserInput()
+    printingValues()
+
+    console.log('WE ARE ON THE SEND AREA')
 }
+
+
 
 //Function
 function printingValuesHTML (){
-// Set Item
-localStorage.setItem("Country Name", nameInput.value);
-// Retrieve
-document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
+    // Set Item
+    localStorage.setItem("Country Name", nameInput.value);
+    // Retrieve
+    document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
 
 // Function-Running API code
@@ -37,38 +42,28 @@ function changeAPI(){
     // var APIKey = "24956411e34fc55da6781bc2185e43c8";
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
     .then(response => response.json())
-    .then (data => console.log(data))
+    .then (data => {
+        
+        const tempValue = data['main']['temp'];
+        const nameValue = data['name'];
+        const descValue = data['weather'][0]['description']; 
+
+        console.log(tempValue)
+        console.log(nameValue)  
+        console.log(descValue)         
+        console.log(data)
+
+    })
+
     .catch(err => alert("Wrong city name"))
 }
-//Connecting specigic variables to API
-
-    var input = document.querySelector('.input_text');
-    var main = document.querySelector('#name');
-    var temp = document.querySelector('.temp');
-    var desc = document.querySelector('.desc');
-    var clouds = document.querySelector('.clouds');
-    var button= document.querySelector('.submit');
 
 
-    https://www.youtube.com/watch?v=6trGQWzg2AI
-    function readUserInput(){
-        fetch('https://api.openweathermap.org/data/2.5/weather?q='+ uname.value +'&appid=50a7aa80fa492fa92e874d23ad061374')
-        .then(response => response.json())
-        .then(data => {
-          var tempValue = data['main']['temp'];
-          var nameValue = data['name'];
-          var descValue = data['weather'][0]['description'];
-        
-          main.innerHTML = nameValue;
-          desc.innerHTML = "Desc - "+descValue;
-          temp.innerHTML = "Temp - "+tempValue;
-          input.value ="";
-        
-        })
-
-        .catch(err => alert("Wrong city name!"));
-        console.log("We are prenting the wrong values: " + uname.value)
-        }
+//Function Printing Values
+function printingValues(){
+    console.log('Is this printing out!')
+    // console.log(descValue)
+}
 
 
 
