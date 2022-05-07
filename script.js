@@ -23,8 +23,6 @@ function send() {
     changeAPI()
     printingValuesHTML()
     printingValues()
-
-    console.log('WE ARE ON THE SEND AREA')
 }
 
 
@@ -53,6 +51,11 @@ function changeAPI(){
         console.log(descValue)         
         console.log(data)
 
+
+        //Editing the HTML direcly 
+        document.getElementById('tempValue').textContent = tempValue;
+        document.getElementById("nameValue").textContent = nameValue
+        document.getElementById("descValue").textContent = descValue
     })
 
     .catch(err => alert("Wrong city name"))
