@@ -38,6 +38,7 @@ function printingValuesHTML (){
 // Function-Running API code
 function changeAPI(){
     // var APIKey = "24956411e34fc55da6781bc2185e43c8";
+    // fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
     .then(response => response.json())
     .then (data => {
