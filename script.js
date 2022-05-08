@@ -61,7 +61,6 @@ function changeAPI(){
         document.getElementById("windValue").textContent = windValue
         document.getElementById("descValue").textContent = descValue
     })
-
     .catch(err => alert("Wrong city name"))
 }
 
