@@ -73,23 +73,13 @@ function secondAPIcall(){
     .then (data => {
 
         const cityValue = data['city']['name']
+        const dayOneValue = data['list'][0]['dt_txt']; 
+        const daytwoValue = data['list'][1]['dt_txt']; 
 
         console.log(cityValue)
+        console.log(dayOneValue)
+        console.log(daytwoValue)
         
-        // const tempValue = data['main']['temp'];
-        // const nameValue = data['name'];
-        // const descValue = data['weather'][0]['description']; 
-        // const windValue = data['wind']['speed']; 
-        // console.log(tempValue)
-        // console.log(nameValue)  
-        // console.log(descValue)
-        // console.log(windValue)         
-        // console.log(data)
-        // //Editing the HTML direcly 
-        // document.getElementById('tempValue').textContent = tempValue;
-        // document.getElementById("nameValue").textContent = nameValue
-        // document.getElementById("windValue").textContent = windValue
-        // document.getElementById("descValue").textContent = descValue
         document.getElementById('cityValue').textContent = cityValue;
 
         console.log('secondAPIcall is running!')
