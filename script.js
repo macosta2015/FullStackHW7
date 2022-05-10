@@ -35,7 +35,7 @@ function printingValuesHTML (){
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
 
-// Function-Running API code
+// Function-Running API code 
 function changeAPI(){
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
     .then(response => response.json())
