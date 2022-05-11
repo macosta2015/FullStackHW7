@@ -17,6 +17,7 @@ document.querySelector('form.input-group').addEventListener('submit', function (
 });
 
 //Function
+
 function send() {
     //Setting the local storage for the variable that was read
     localStorage.setItem('name3', nameInput.value);
