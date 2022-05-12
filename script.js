@@ -31,7 +31,7 @@ function send() {
 //Function
 function printingValuesHTML (){
     // Set Item
-    localStorage.setItem("Country Name", nameInput.value);
+    localStorage.setItem("Country Name: ", nameInput.value);
     // Retrieve
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
