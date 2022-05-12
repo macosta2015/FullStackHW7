@@ -17,6 +17,7 @@ document.querySelector('form.input-group').addEventListener('submit', function (
 });
 
 //Function
+
 function send() {
     //Setting the local storage for the variable that was read
     localStorage.setItem('name3', nameInput.value);
@@ -30,12 +31,12 @@ function send() {
 //Function
 function printingValuesHTML (){
     // Set Item
-    localStorage.setItem("Country Name", nameInput.value);
+    localStorage.setItem("Country Name: ", nameInput.value);
     // Retrieve
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
 
-// Function-Running API code
+// Function-Running API code 
 function changeAPI(){
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
     .then(response => response.json())
