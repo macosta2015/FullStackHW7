@@ -78,14 +78,18 @@ function secondAPIcall(){
         const day3Value = data['list'][14]['dt_txt']; 
         const day4Value = data['list'][23]['dt_txt']; 
         const day5Value = data['list'][30]['dt_txt']; 
-        
 
-        console.log(cityValue)
-        console.log(day1Value)
-        console.log(day2Value)
-        console.log(day3Value)
-        console.log(day4Value)
-        console.log(day5Value)
+        //Getting the temperature
+        const day1Temp = data['list'][0]['main']['temp']; 
+        
+        console.log('This is the value of the temperature::  ' + day1Temp)
+
+        // console.log(cityValue)
+        // console.log(day1Value)
+        // console.log(day2Value)
+        // console.log(day3Value)
+        // console.log(day4Value)
+        // console.log(day5Value)
         
         // document.getElementById('cityValue').textContent = cityValue;
         document.getElementById('day1Value').textContent = day1Value;
