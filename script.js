@@ -86,21 +86,13 @@ function secondAPIcall(){
         const Temp3 = data['list'][14]['main']['temp']; 
         const Temp4 = data['list'][23]['main']['temp']; 
         const Temp5 = data['list'][30]['main']['temp']; 
-        
-        // console.log('This is the value of the temperature::  ' + day1Temp)
 
-        // for (let i = 0; i < 5; i++) {
-        //     console.log("The temperature values are: " + Temp1) 
-        //     console.log("Printing: " + [i]) 
-        //     console.log("Printing: " + (Temp1[i]) 
-        //   }
-
-        // console.log(cityValue)
-        // console.log(day1Value)
-        // console.log(day2Value)
-        // console.log(day3Value)
-        // console.log(day4Value)
-        // console.log(day5Value)
+        //Getting the wind value 
+        const humidity1 = data['list'][0]['main']['humidity']; 
+        const humidity2 = data['list'][6]['main']['humidity']; 
+        const humidity3 = data['list'][14]['main']['humidity']; 
+        const humidity4 = data['list'][23]['main']['humidity']; 
+        const humidity5 = data['list'][30]['main']['humidity']; 
         
         // document.getElementById('cityValue').textContent = cityValue;
         document.getElementById('day1Value').textContent = day1Value;
@@ -116,7 +108,12 @@ function secondAPIcall(){
         document.getElementById('Temp4').textContent = Temp4;
         document.getElementById('Temp5').textContent = Temp5;
 
-
+        // Getting the documentById to HTML
+        document.getElementById('humidity1').textContent = humidity1;
+        document.getElementById('humidity2').textContent = humidity2;
+        document.getElementById('humidity3').textContent = humidity3;
+        document.getElementById('humidity4').textContent = humidity4;
+        document.getElementById('humidity5').textContent = humidity5;
 
 
         console.log('secondAPIcall is running!')
