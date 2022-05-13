@@ -72,6 +72,7 @@ function secondAPIcall(){
     .then(response => response.json())
     .then (data => {
 
+        //Getting the next five days 
         const cityValue = data['city']['name']
         const day1Value = data['list'][0]['dt_txt']; 
         const day2Value = data['list'][6]['dt_txt']; 
@@ -79,10 +80,20 @@ function secondAPIcall(){
         const day4Value = data['list'][23]['dt_txt']; 
         const day5Value = data['list'][30]['dt_txt']; 
 
-        //Getting the temperature
-        const day1Temp = data['list'][0]['main']['temp']; 
+        //Getting the temperature of those five days
+        const Temp1 = data['list'][0]['main']['temp']; 
+        const Temp2 = data['list'][6]['main']['temp']; 
+        const Temp3 = data['list'][14]['main']['temp']; 
+        const Temp4 = data['list'][23]['main']['temp']; 
+        const Temp5 = data['list'][30]['main']['temp']; 
         
-        console.log('This is the value of the temperature::  ' + day1Temp)
+        // console.log('This is the value of the temperature::  ' + day1Temp)
+
+        // for (let i = 0; i < 5; i++) {
+        //     console.log("The temperature values are: " + Temp1) 
+        //     console.log("Printing: " + [i]) 
+        //     console.log("Printing: " + (Temp1[i]) 
+        //   }
 
         // console.log(cityValue)
         // console.log(day1Value)
@@ -97,6 +108,13 @@ function secondAPIcall(){
         document.getElementById('day3Value').textContent = day3Value;
         document.getElementById('day4Value').textContent = day4Value;
         document.getElementById('day5Value').textContent = day5Value;
+
+        // Getting the documentById to HTML
+        document.getElementById('Temp1').textContent = Temp1;
+        document.getElementById('Temp2').textContent = Temp2;
+        document.getElementById('Temp3').textContent = Temp3;
+        document.getElementById('Temp4').textContent = Temp4;
+        document.getElementById('Temp5').textContent = Temp5;
 
 
 
