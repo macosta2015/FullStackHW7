@@ -38,7 +38,7 @@ function printingValuesHTML (){
 
 // Function-Running API code 
 function changeAPI(){
-    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey)
+    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey + "&units=imperial")
     .then(response => response.json())
     .then (data => {
         const tempValue = data['main']['temp'];
@@ -67,7 +67,7 @@ function changeAPI(){
 function secondAPIcall(){
     const latitude = 32.7668;
     const longitude = -96.7836;
-    fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey)
+    fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&units=imperial") 
     
     .then(response => response.json())
     .then (data => {
