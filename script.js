@@ -1,21 +1,35 @@
 //Declaring the Global variables
 var nameInput = document.getElementById('uname');
 var APIKey = "24956411e34fc55da6781bc2185e43c8";
+var myarr = []; 
 
-
+//GOLDEN CODES
+//We are adding arrays by the user input
+function addTo() { 
+    myarr.push(document.getElementById("uname").value); 
+    console.log(myarr); //to confirm it has been added to the array 
+    console.log('First Value: ' + (myarr[0]))
+    console.log('Second Value: ' + (myarr[1]))
+    console.log('Third Value: ' + (myarr[2]))
+ } 
 
 // Function
-function callingtheArray() {
+function callingtheArray(nameValue) {
     //Testing the array function
-    console.log('We are testig the ARRAY')
-    //storing array in localStorage
-    var colors = ["Miami","Dallas","Austin","Seattle","Laredo","New York","San Francisco","New Mexico", "Tennessee"];
+    console.log('We are testig the ARRAY, the nameValue is: ' + nameValue)
+    
+    // var colors = ["Miami","Dallas","Austin","Seattle","Laredo","New York","San Francisco","New Mexico", "Tennessee"];
+    var colors = ["Miami","Dallas","Austin"];
+    colors.push(nameValue)
+
+    console.log('We are testig the ARRAY now that is pushed: ' + colors)
+
     localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
     var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
     console.log('Array value0: '+ storedColors[0])
     console.log('Array value1: '+ storedColors[1])
     console.log('Array value2: '+ storedColors[2])
-
+    console.log('Citi in the array: '+ nameValue)
     document.getElementById("nameValueARRAY0").textContent = storedColors[0]
     document.getElementById("nameValueARRAY1").textContent = storedColors[1]
     document.getElementById("nameValueARRAY2").textContent = storedColors[2]
@@ -51,7 +65,7 @@ function send() {
     changeAPI()
     printingValuesHTML()
     printingValues()
-    callingtheArray()
+    // callingtheArray()
 }
 
 
@@ -93,6 +107,8 @@ function changeAPI(){
 
         //We are calling the secondAPIcall
         secondAPIcall(latitudeValue,longitudeValue)
+        callingtheArray(nameValue)
+
     })
     .catch(err => alert("Wrong city name"))
 }
