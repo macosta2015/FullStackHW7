@@ -3,6 +3,13 @@ var nameInput = document.getElementById('uname');
 var APIKey = "24956411e34fc55da6781bc2185e43c8";
 var myarr = []; 
 
+document.getElementById("nameValueARRAY0").addEventListener("click", displayDate);
+//Testing reading the values
+//Function
+function displayDate() {
+    document.getElementById("demo").innerHTML = "Event Listener";
+}
+
 //GOLDEN CODES
 //We are adding arrays by the user input
 function addTo(){ 
@@ -34,38 +41,19 @@ function callingtheArray(nameValue) {
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
 
-
 //Function
 document.querySelector('form.input-group').addEventListener('submit', function (e) {
     e.preventDefault(); 
-    //Setting the local storage for the variable that was read
-    localStorage.setItem('name3', nameInput.value);
     changeAPI()
-    printingValuesHTML()
     printingValues()
-    // callingtheArray()
 });
 
 
 //Function
 function send() {
-    //Setting the local storage for the variable that was read
-    localStorage.setItem('name3', nameInput.value);
     changeAPI()
-    printingValuesHTML()
     printingValues()
-    // callingtheArray()
 }
-
-
-//Function
-function printingValuesHTML (){
-    // Set Item
-    localStorage.setItem("Country Name: ", nameInput.value);
-    // Retrieve
-    document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
-}
-
 
 // Function-Running API code 
 function changeAPI(){
@@ -79,15 +67,6 @@ function changeAPI(){
         const latitudeValue = data['coord']['lat'];
         const longitudeValue = data['coord']['lon'];
 
-
-        // console.log(data)
-        // console.log(tempValue)
-        // console.log(nameValue)  
-        // console.log(descValue)
-        // console.log(windValue)     
-        // console.log(latitudeValue)
-        // console.log(longitudeValue)    
-        //Editing the HTML direcly 
         document.getElementById('tempValue').textContent = tempValue;
         document.getElementById("nameValue").textContent = nameValue
         document.getElementById("windValue").textContent = windValue
@@ -104,10 +83,8 @@ function changeAPI(){
 
 //Function second call
 function secondAPIcall(latitudeValue,longitudeValue){
-    // console.log('Hello Second API: ' + latitudeValue + ' ' + longitudeValue )
     const latitude = latitudeValue;
     const longitude = longitudeValue;
-    // console.log('Hello Second API, checking LAT AND LONG: ' + latitude + ' ' + longitude )
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&units=imperial") 
     
     .then(response => response.json())
