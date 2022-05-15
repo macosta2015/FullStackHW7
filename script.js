@@ -3,8 +3,34 @@ var nameInput = document.getElementById('uname');
 var APIKey = "24956411e34fc55da6781bc2185e43c8";
 
 
-//This code is to get the local storage and have it saved when refreshing
-document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
+
+// Function
+function callingtheArray() {
+    //Testing the array function
+    console.log('We are testig the ARRAY')
+    //storing array in localStorage
+    var colors = ["Miami","Dallas","Austin","Seattle","Laredo","New York","San Francisco","New Mexico", "Tennessee"];
+    localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
+    var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
+    console.log('Array value0: '+ storedColors[0])
+    console.log('Array value1: '+ storedColors[1])
+    console.log('Array value2: '+ storedColors[2])
+
+    document.getElementById("nameValueARRAY0").textContent = storedColors[0]
+    document.getElementById("nameValueARRAY1").textContent = storedColors[1]
+    document.getElementById("nameValueARRAY2").textContent = storedColors[2]
+    document.getElementById("nameValueARRAY3").textContent = storedColors[3]
+    document.getElementById("nameValueARRAY4").textContent = storedColors[4]
+    document.getElementById("nameValueARRAY5").textContent = storedColors[5]
+    document.getElementById("nameValueARRAY6").textContent = storedColors[6]
+    document.getElementById("nameValueARRAY7").textContent = storedColors[7]
+    document.getElementById("nameValueARRAY8").textContent = storedColors[8]
+
+
+    //This code is to get the local storage and have it saved when refreshing
+    document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
+}
+
 
 //Function
 document.querySelector('form.input-group').addEventListener('submit', function (e) {
@@ -14,16 +40,18 @@ document.querySelector('form.input-group').addEventListener('submit', function (
     changeAPI()
     printingValuesHTML()
     printingValues()
+    callingtheArray()
 });
 
-//Function
 
+//Function
 function send() {
     //Setting the local storage for the variable that was read
     localStorage.setItem('name3', nameInput.value);
     changeAPI()
     printingValuesHTML()
     printingValues()
+    callingtheArray()
 }
 
 
@@ -45,11 +73,17 @@ function changeAPI(){
         const nameValue = data['name'];
         const descValue = data['weather'][0]['description']; 
         const windValue = data['wind']['speed']; 
+        const latitudeValue = data['coord']['lat'];
+        const longitudeValue = data['coord']['lon'];
+
+
         console.log(data)
         console.log(tempValue)
         console.log(nameValue)  
         console.log(descValue)
-        console.log(windValue)         
+        console.log(windValue)     
+        console.log(latitudeValue)
+        console.log(longitudeValue)    
         // console.log(data)
         //Editing the HTML direcly 
         document.getElementById('tempValue').textContent = tempValue;
@@ -58,15 +92,17 @@ function changeAPI(){
         document.getElementById("descValue").textContent = descValue
 
         //We are calling the secondAPIcall
-        secondAPIcall()
+        secondAPIcall(latitudeValue,longitudeValue)
     })
     .catch(err => alert("Wrong city name"))
 }
 
 //Function second call
-function secondAPIcall(){
-    const latitude = 32.7668;
-    const longitude = -96.7836;
+function secondAPIcall(latitudeValue,longitudeValue){
+    console.log('Hello Second API: ' + latitudeValue + ' ' + longitudeValue )
+    const latitude = latitudeValue;
+    const longitude = longitudeValue;
+    console.log('Hello Second API, checking LAT AND LONG: ' + latitude + ' ' + longitude )
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&units=imperial") 
     
     .then(response => response.json())
