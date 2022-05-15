@@ -14,10 +14,18 @@
       <div class="container">
         <div class="row justify-content-center bg-light">
             <a class="row justify-content-center" href="#">
-                <h1>WeatherDashboard</h1>
-                <!-- In here we used to have the button that ran the code. Code is now in the only button "add" -->
-                <!-- <input type="text" id="userinput" />  -->
-                <!-- <input type ="button" onclick="addTo()" value="Add" />  -->
+                <!-- <h1>WeatherDashboard</h1> -->
+                <header class="jumbotron">
+                  <h1 class="display-3">WeatherDashboard</h1>
+                  <!-- Adding the code for today's date -->
+                  <div>
+                    <script>
+                    date = new Date().toLocaleDateString();
+                    document.write(date);
+                    </script>
+                  </div>
+                  <p id="currentDay" class="lead"></p>
+                </header>
             </a>
         </div>
       </div>
@@ -55,10 +63,10 @@
             <div class="row">
               <div class="col-sm-5 col-md-12"> 
                 <div class="card-body" >
-                    <p class="text-primary col-sm-2 col-md-2"> Citie's name: <span class="text-dark"id="nameValue"> </span> </p>
-                    <p class="text-primary col-sm-2 col-md-2"> Citie's temperature: <span class="text-dark" id="tempValue"> </span> </p>
-                    <p class="text-primary col-sm-2 col-md-2"> Citie's humidity: <span class="text-dark" id="descValue"> </span> </p>
-                    <p class="text-primary col-sm-2 col-md-2"> Citie's Wind: <span class="text-dark" id="windValue"> </span> </p>
+                    <p class="text-primary col-sm-2 col-md-2"> city's name: <span class="text-dark"id="nameValue"> </span> </p>
+                    <p class="text-primary col-sm-2 col-md-2"> city's temperature: <span class="text-dark" id="tempValue"> </span> </p>
+                    <p class="text-primary col-sm-2 col-md-2"> city's humidity: <span class="text-dark" id="descValue"> </span> </p>
+                    <p class="text-primary col-sm-2 col-md-2"> city's Wind: <span class="text-dark" id="windValue"> </span> </p>
                     <p class="text-primary col-sm-2 col-md-2"> UV Index: <span class="text-dark" id="descValue"> </span> </p>
                   </u>
                 </div>
@@ -66,8 +74,8 @@
                 <div class="card-body" >
                   <!-- <h5 class="card-title" >Day one: </h5> -->
                     <ul class="list-group list-group-flushbg-primary text-white">
-                    <!-- <li class="list-group-item bg-primary text-white">Citie's name: <span class="text-dark"id="cityValue"> </span> </li> -->
-                    <li class="list-group-item bg-primary text-white">Citie's date:  <span class="text-dark"id="day1Value"> </span> </li>
+                    <!-- <li class="list-group-item bg-primary text-white">city's name: <span class="text-dark"id="cityValue"> </span> </li> -->
+                    <li class="list-group-item bg-primary text-white">city's date:  <span class="text-dark"id="day1Value"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Temp:  <span class="text-dark"id="Temp1"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Humidity:  <span class="text-dark"id="humidity1"> </span> </li>
                     <!-- <li class="list-group-item bg-primary text-white">A third item</li> -->
@@ -77,7 +85,7 @@
                   <!-- <h5 class="card-title" >Special title treatment</h5> -->
                     <ul class="list-group list-group-flushbg-primary text-white">
                     <!-- <li class="list-group-item bg-primary text-white">An item</li> -->
-                    <li class="list-group-item bg-primary text-white">Citie's date:  <span class="text-dark"id="day2Value"> </span> </li>
+                    <li class="list-group-item bg-primary text-white">city's date:  <span class="text-dark"id="day2Value"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Temp:  <span class="text-dark"id="Temp2"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Humidity:  <span class="text-dark"id="humidity2"> </span> </li>
                     <!-- <li class="list-group-item bg-primary text-white">A third item</li> -->
@@ -87,7 +95,7 @@
                   <!-- <h5 class="card-title" >Special title treatment</h5> -->
                     <ul class="list-group list-group-flushbg-primary text-white">
                     <!-- <li class="list-group-item bg-primary text-white">An item</li> -->
-                    <li class="list-group-item bg-primary text-white">Citie's date: <span class="text-dark"id="day3Value"> </span> </li>
+                    <li class="list-group-item bg-primary text-white">city's date: <span class="text-dark"id="day3Value"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Temp:  <span class="text-dark"id="Temp3"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Humidity:  <span class="text-dark"id="humidity3"> </span> </li>
                     <!-- <li class="list-group-item bg-primary text-white">A third item</li> -->
@@ -97,7 +105,7 @@
                   <!-- <h5 class="card-title" >Special title treatment</h5> -->
                     <ul class="list-group list-group-flushbg-primary text-white">
                     <!-- <li class="list-group-item bg-primary text-white">An item</li> -->
-                    <li class="list-group-item bg-primary text-white">Citie's date:  <span class="text-dark"id="day4Value"> </span> </li>
+                    <li class="list-group-item bg-primary text-white">city's date:  <span class="text-dark"id="day4Value"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Temp:  <span class="text-dark"id="Temp4"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Humidity:  <span class="text-dark"id="humidity4"> </span> </li>
                     <!-- <li class="list-group-item bg-primary text-white">A third item</li> -->
@@ -107,8 +115,8 @@
                   <!-- <h5 class="card-title" >Special title treatment</h5> -->
                     <ul class="list-group list-group-flushbg-primary text-white">
                     <!-- <li class="list-group-item bg-primary text-white">An item</li> -->
-                    <li class="list-group-item bg-primary text-white">Citie's date: <span class="text-dark"id="day5Value"> </span> </li>
-                    <li class="list-group-item bg-primary text-white">Citie's date: <span class="text-dark"id="Temp5"> </span> </li>
+                    <li class="list-group-item bg-primary text-white">city's date: <span class="text-dark"id="day5Value"> </span> </li>
+                    <li class="list-group-item bg-primary text-white">city's date: <span class="text-dark"id="Temp5"> </span> </li>
                     <li class="list-group-item bg-primary text-white">Humidity: % <span class="text-dark"id="humidity5"> </span> </li>
                     <!-- <li class="list-group-item bg-primary text-white">A third item</li> -->
                   </ul>
