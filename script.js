@@ -7,39 +7,18 @@ var myarr = [];
 //We are adding arrays by the user input
 function addTo(){ 
     myarr.push(document.getElementById("uname").value); 
-    console.log(myarr); //to confirm it has been added to the array 
-    // console.log('First Value: ' + (myarr[0]))
-    // console.log('Second Value: ' + (myarr[1]))
-    // console.log('Third Value: ' + (myarr[2]))
-
     return ((myarr[0]),(myarr[1]),(myarr[2]), (myarr[3]), (myarr[4]),(myarr[5]), (myarr[6]), (myarr[7]), (myarr[8]))
 } 
 
 // Function
 function callingtheArray(nameValue) {
-    //Testing the array function
     console.log('We are testig the ARRAY, the nameValue is: ' + nameValue)
-    
-    // var colors = ["Miami","Dallas","Austin","Seattle","Laredo","New York","San Francisco","New Mexico", "Tennessee"];
-    // var colors = ["Miami","Dallas","Austin"];
-
-    // Calling the function addTo()
-    addTo((myarr[0]),(myarr[1]),(myarr[2]),(myarr[3]),(myarr[4]),(myarr[5]))
-
+    // addTo((myarr[0]),(myarr[1]),(myarr[2]),(myarr[3]),(myarr[4]),(myarr[5]))
+    addTo()
     console.log('We are printing the addTo values: ' + myarr[0] + ' ' + myarr[1] +  ' ' + (myarr[2]) + ' ' + (myarr[3]) + ' ' + myarr[4] + ' ' + myarr[5] +  ' ' + (myarr[6]) + ' ' + (myarr[7]) + ' ' + (myarr[8]));
-
     var colors = [myarr[0],myarr[1],myarr[2],myarr[3],myarr[4],myarr[5],myarr[6],myarr[7],myarr[8],];
-
-    // var colors = [0,1,2,3];
-    // var colors = ["Miami","Dallas"];
-    // var colors = ["Miami","Dallas","Austin"];
-    // colors[0,1,2,3] = myarr[0,1,2,3]
-
     localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
     var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
-    // console.log('Array value0: '+ storedColors[0])
-    // console.log('Array value1: '+ storedColors[1])
-    // console.log('Array value2: '+ storedColors[2])
     console.log('Citi in the array: '+ nameValue)
     document.getElementById("nameValueARRAY0").textContent = storedColors[0]
     document.getElementById("nameValueARRAY1").textContent = storedColors[1]
@@ -50,7 +29,6 @@ function callingtheArray(nameValue) {
     document.getElementById("nameValueARRAY6").textContent = storedColors[6]
     document.getElementById("nameValueARRAY7").textContent = storedColors[7]
     document.getElementById("nameValueARRAY8").textContent = storedColors[8]
-
 
     //This code is to get the local storage and have it saved when refreshing
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
@@ -65,7 +43,7 @@ document.querySelector('form.input-group').addEventListener('submit', function (
     changeAPI()
     printingValuesHTML()
     printingValues()
-    callingtheArray()
+    // callingtheArray()
 });
 
 
@@ -80,7 +58,6 @@ function send() {
 }
 
 
-
 //Function
 function printingValuesHTML (){
     // Set Item
@@ -88,6 +65,7 @@ function printingValuesHTML (){
     // Retrieve
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
+
 
 // Function-Running API code 
 function changeAPI(){
@@ -122,6 +100,7 @@ function changeAPI(){
     })
     .catch(err => alert("Wrong city name"))
 }
+
 
 //Function second call
 function secondAPIcall(latitudeValue,longitudeValue){
