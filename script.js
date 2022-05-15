@@ -28,8 +28,12 @@ function callingtheArray(nameValue) {
 
     console.log('We are printing the addTo values: ' + myarr[0] + ' ' + myarr[1] +  ' ' + (myarr[2]) + ' ' + (myarr[3]) + ' ' + myarr[4] + ' ' + myarr[5] +  ' ' + (myarr[6]) + ' ' + (myarr[7]) + ' ' + (myarr[8]));
 
+    var colors = [myarr[0],myarr[1],myarr[2],myarr[3],myarr[4],myarr[5],myarr[6],myarr[7],myarr[8],];
 
-    var colors = ["Miami","Dallas","Austin"];
+    // var colors = [0,1,2,3];
+    // var colors = ["Miami","Dallas"];
+    // var colors = ["Miami","Dallas","Austin"];
+    // colors[0,1,2,3] = myarr[0,1,2,3]
 
     localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
     var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
