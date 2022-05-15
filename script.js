@@ -5,13 +5,15 @@ var myarr = [];
 
 //GOLDEN CODES
 //We are adding arrays by the user input
-function addTo() { 
+function addTo(){ 
     myarr.push(document.getElementById("uname").value); 
     console.log(myarr); //to confirm it has been added to the array 
-    console.log('First Value: ' + (myarr[0]))
-    console.log('Second Value: ' + (myarr[1]))
-    console.log('Third Value: ' + (myarr[2]))
- } 
+    // console.log('First Value: ' + (myarr[0]))
+    // console.log('Second Value: ' + (myarr[1]))
+    // console.log('Third Value: ' + (myarr[2]))
+
+    return ((myarr[0]),(myarr[1]),(myarr[2]), (myarr[3]), (myarr[4]),(myarr[5]), (myarr[6]), (myarr[7]), (myarr[8]))
+} 
 
 // Function
 function callingtheArray(nameValue) {
@@ -19,16 +21,21 @@ function callingtheArray(nameValue) {
     console.log('We are testig the ARRAY, the nameValue is: ' + nameValue)
     
     // var colors = ["Miami","Dallas","Austin","Seattle","Laredo","New York","San Francisco","New Mexico", "Tennessee"];
-    var colors = ["Miami","Dallas","Austin"];
-    colors.push(nameValue)
+    // var colors = ["Miami","Dallas","Austin"];
 
-    console.log('We are testig the ARRAY now that is pushed: ' + colors)
+    // Calling the function addTo()
+    addTo((myarr[0]),(myarr[1]),(myarr[2]),(myarr[3]),(myarr[4]),(myarr[5]))
+
+    console.log('We are printing the addTo values: ' + myarr[0] + ' ' + myarr[1] +  ' ' + (myarr[2]) + ' ' + (myarr[3]) + ' ' + myarr[4] + ' ' + myarr[5] +  ' ' + (myarr[6]) + ' ' + (myarr[7]) + ' ' + (myarr[8]));
+
+
+    var colors = ["Miami","Dallas","Austin"];
 
     localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
     var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
-    console.log('Array value0: '+ storedColors[0])
-    console.log('Array value1: '+ storedColors[1])
-    console.log('Array value2: '+ storedColors[2])
+    // console.log('Array value0: '+ storedColors[0])
+    // console.log('Array value1: '+ storedColors[1])
+    // console.log('Array value2: '+ storedColors[2])
     console.log('Citi in the array: '+ nameValue)
     document.getElementById("nameValueARRAY0").textContent = storedColors[0]
     document.getElementById("nameValueARRAY1").textContent = storedColors[1]
@@ -91,14 +98,13 @@ function changeAPI(){
         const longitudeValue = data['coord']['lon'];
 
 
-        console.log(data)
-        console.log(tempValue)
-        console.log(nameValue)  
-        console.log(descValue)
-        console.log(windValue)     
-        console.log(latitudeValue)
-        console.log(longitudeValue)    
         // console.log(data)
+        // console.log(tempValue)
+        // console.log(nameValue)  
+        // console.log(descValue)
+        // console.log(windValue)     
+        // console.log(latitudeValue)
+        // console.log(longitudeValue)    
         //Editing the HTML direcly 
         document.getElementById('tempValue').textContent = tempValue;
         document.getElementById("nameValue").textContent = nameValue
@@ -115,10 +121,10 @@ function changeAPI(){
 
 //Function second call
 function secondAPIcall(latitudeValue,longitudeValue){
-    console.log('Hello Second API: ' + latitudeValue + ' ' + longitudeValue )
+    // console.log('Hello Second API: ' + latitudeValue + ' ' + longitudeValue )
     const latitude = latitudeValue;
     const longitude = longitudeValue;
-    console.log('Hello Second API, checking LAT AND LONG: ' + latitude + ' ' + longitude )
+    // console.log('Hello Second API, checking LAT AND LONG: ' + latitude + ' ' + longitude )
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&units=imperial") 
     
     .then(response => response.json())
@@ -168,7 +174,7 @@ function secondAPIcall(latitudeValue,longitudeValue){
         document.getElementById('humidity5').textContent = humidity5;
 
 
-        console.log('secondAPIcall is running!')
+        // console.log('secondAPIcall is running!')
         console.log(data)
 
     })
