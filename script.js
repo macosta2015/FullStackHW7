@@ -45,11 +45,17 @@ function changeAPI(){
         const nameValue = data['name'];
         const descValue = data['weather'][0]['description']; 
         const windValue = data['wind']['speed']; 
+        const latitudeValue = data['coord']['lat'];
+        const longitudeValue = data['coord']['lon'];
+
+
         console.log(data)
         console.log(tempValue)
         console.log(nameValue)  
         console.log(descValue)
-        console.log(windValue)         
+        console.log(windValue)     
+        console.log(latitudeValue)
+        console.log(longitudeValue)    
         // console.log(data)
         //Editing the HTML direcly 
         document.getElementById('tempValue').textContent = tempValue;
@@ -58,15 +64,17 @@ function changeAPI(){
         document.getElementById("descValue").textContent = descValue
 
         //We are calling the secondAPIcall
-        secondAPIcall()
+        secondAPIcall(latitudeValue,longitudeValue)
     })
     .catch(err => alert("Wrong city name"))
 }
 
 //Function second call
-function secondAPIcall(){
-    const latitude = 32.7668;
-    const longitude = -96.7836;
+function secondAPIcall(latitudeValue,longitudeValue){
+    console.log('Hello Second API: ' + latitudeValue + ' ' + longitudeValue )
+    const latitude = latitudeValue;
+    const longitude = longitudeValue;
+    console.log('Hello Second API, checking LAT AND LONG: ' + latitude + ' ' + longitude )
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&units=imperial") 
     
     .then(response => response.json())
