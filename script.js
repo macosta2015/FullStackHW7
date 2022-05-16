@@ -93,18 +93,7 @@ function displayDate8() {
 
 // Function-Running API code 
 function changeAPI(localCityName){
-
-    // for (let i = 0; i < 5; i++) {
-    //     if (uname.value == myarr[i]){
-    //         console.log('The same City value: ' + myarr[i])
-    //         // alert('City is already used: ' + myarr[i])
-    //         //GOLD! The return will exit the function if it satifies the if statement!
-    //         //We have a city that is repeated!
-    //         // return;
-
-    //     }
-    // }
-
+    
     // var localCityName = "Laredo"
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + localCityName + "&appid=" + APIKey + "&units=imperial")
 
