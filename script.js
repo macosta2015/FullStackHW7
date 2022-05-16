@@ -3,13 +3,6 @@ var nameInput = document.getElementById('uname');
 var APIKey = "24956411e34fc55da6781bc2185e43c8";
 var myarr = []; 
 
-document.getElementById("nameValueARRAY0").addEventListener("click", displayDate);
-//Testing reading the values
-//Function
-function displayDate() {
-    document.getElementById("demo").innerHTML = "Event Listener";
-}
-
 //GOLDEN CODES
 //We are adding arrays by the user input
 function addTo(){ 
@@ -44,20 +37,71 @@ function callingtheArray(nameValue) {
 //Function
 document.querySelector('form.input-group').addEventListener('submit', function (e) {
     e.preventDefault(); 
-    changeAPI()
+    changeAPI(uname.value)
     printingValues()
 });
 
 
 //Function
 function send() {
-    changeAPI()
+    changeAPI(uname.value)
     printingValues()
 }
 
+
+//HOT CODE
+document.getElementById("nameValueARRAY0").addEventListener("click", displayDate0);
+document.getElementById("nameValueARRAY1").addEventListener("click", displayDate1);
+document.getElementById("nameValueARRAY2").addEventListener("click", displayDate2);
+document.getElementById("nameValueARRAY3").addEventListener("click", displayDate3);
+document.getElementById("nameValueARRAY4").addEventListener("click", displayDate4);
+document.getElementById("nameValueARRAY5").addEventListener("click", displayDate5);
+document.getElementById("nameValueARRAY6").addEventListener("click", displayDate6);
+document.getElementById("nameValueARRAY7").addEventListener("click", displayDate7);
+document.getElementById("nameValueARRAY8").addEventListener("click", displayDate8);
+
+//Testing reading the values
+//Function
+function displayDate0() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[0]);
+}
+function displayDate1() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[1]);
+}
+function displayDate2() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[2]);
+}
+function displayDate3() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[3]);
+}
+function displayDate4() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[4]);
+}
+function displayDate5() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[5]);
+}
+function displayDate6() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[6]);
+}
+function displayDate7() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[7]);
+}
+function displayDate8() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[8]);
+}
+
+//HOT CODE END
+
+
+
+
 // Function-Running API code 
-function changeAPI(){
-    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey + "&units=imperial")
+function changeAPI(localCityName){
+    // var localCityName = "Laredo"
+    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + localCityName + "&appid=" + APIKey + "&units=imperial")
+
+    // good code
+    // fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey + "&units=imperial")
     .then(response => response.json())
     .then (data => {
         const tempValue = data['main']['temp'];
