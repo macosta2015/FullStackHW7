@@ -11,15 +11,12 @@ function addTo(){
 } 
 
 // Function
-function callingtheArray(nameValue) {
-    console.log('We are testig the ARRAY, the nameValue is: ' + nameValue)
-    // addTo((myarr[0]),(myarr[1]),(myarr[2]),(myarr[3]),(myarr[4]),(myarr[5]))
+function callingtheArray() {
     addTo()
-    console.log('We are printing the addTo values: ' + myarr[0] + ' ' + myarr[1] +  ' ' + (myarr[2]) + ' ' + (myarr[3]) + ' ' + myarr[4] + ' ' + myarr[5] +  ' ' + (myarr[6]) + ' ' + (myarr[7]) + ' ' + (myarr[8]));
+    // console.log('We are printing the addTo values: ' + myarr[0] + ' ' + myarr[1] +  ' ' + (myarr[2]) + ' ' + (myarr[3]) + ' ' + myarr[4] + ' ' + myarr[5] +  ' ' + (myarr[6]) + ' ' + (myarr[7]) + ' ' + (myarr[8]));
     var colors = [myarr[0],myarr[1],myarr[2],myarr[3],myarr[4],myarr[5],myarr[6],myarr[7],myarr[8],];
     localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
     var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
-    console.log('Citi in the array: '+ nameValue)
     document.getElementById("nameValueARRAY0").textContent = storedColors[0]
     document.getElementById("nameValueARRAY1").textContent = storedColors[1]
     document.getElementById("nameValueARRAY2").textContent = storedColors[2]
@@ -89,7 +86,6 @@ function displayDate7() {
 function displayDate8() {
     document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[8]);
 }
-
 //HOT CODE END
 
 
@@ -97,11 +93,21 @@ function displayDate8() {
 
 // Function-Running API code 
 function changeAPI(localCityName){
+
+    // for (let i = 0; i < 5; i++) {
+    //     if (uname.value == myarr[i]){
+    //         console.log('The same City value: ' + myarr[i])
+    //         // alert('City is already used: ' + myarr[i])
+    //         //GOLD! The return will exit the function if it satifies the if statement!
+    //         //We have a city that is repeated!
+    //         // return;
+
+    //     }
+    // }
+
     // var localCityName = "Laredo"
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + localCityName + "&appid=" + APIKey + "&units=imperial")
 
-    // good code
-    // fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey + "&units=imperial")
     .then(response => response.json())
     .then (data => {
         const tempValue = data['main']['temp'];
@@ -118,6 +124,15 @@ function changeAPI(localCityName){
 
         //We are calling the secondAPIcall
         secondAPIcall(latitudeValue,longitudeValue)
+
+        for (let i = 0; i < 5; i++) {
+            if (uname.value == myarr[i]){
+                console.log('THE SAME CITY VALUE: ' + myarr[i])
+                //GOLD! The return will exit the function if it satifies the if statement!
+                return;
+            }
+        }
+    
         callingtheArray(nameValue)
 
     })
@@ -189,7 +204,7 @@ function secondAPIcall(latitudeValue,longitudeValue){
 
 //Function Printing Values
 function printingValues(){
-    console.log('Is this printing out!')
+    // console.log('Is this printing out!')
 }
 
 
