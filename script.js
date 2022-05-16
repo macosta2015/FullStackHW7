@@ -5,31 +5,18 @@ var myarr = [];
 
 //GOLDEN CODES
 //We are adding arrays by the user input
-function addTo() { 
+function addTo(){ 
     myarr.push(document.getElementById("uname").value); 
-    console.log(myarr); //to confirm it has been added to the array 
-    console.log('First Value: ' + (myarr[0]))
-    console.log('Second Value: ' + (myarr[1]))
-    console.log('Third Value: ' + (myarr[2]))
- } 
+    return ((myarr[0]),(myarr[1]),(myarr[2]), (myarr[3]), (myarr[4]),(myarr[5]), (myarr[6]), (myarr[7]), (myarr[8]))
+} 
 
 // Function
-function callingtheArray(nameValue) {
-    //Testing the array function
-    console.log('We are testig the ARRAY, the nameValue is: ' + nameValue)
-    
-    // var colors = ["Miami","Dallas","Austin","Seattle","Laredo","New York","San Francisco","New Mexico", "Tennessee"];
-    var colors = ["Miami","Dallas","Austin"];
-    colors.push(nameValue)
-
-    console.log('We are testig the ARRAY now that is pushed: ' + colors)
-
+function callingtheArray() {
+    addTo()
+    // console.log('We are printing the addTo values: ' + myarr[0] + ' ' + myarr[1] +  ' ' + (myarr[2]) + ' ' + (myarr[3]) + ' ' + myarr[4] + ' ' + myarr[5] +  ' ' + (myarr[6]) + ' ' + (myarr[7]) + ' ' + (myarr[8]));
+    var colors = [myarr[0],myarr[1],myarr[2],myarr[3],myarr[4],myarr[5],myarr[6],myarr[7],myarr[8],];
     localStorage.setItem("my_colors", JSON.stringify(colors)); //store colors
     var storedColors = JSON.parse(localStorage.getItem("my_colors")); //get them back
-    console.log('Array value0: '+ storedColors[0])
-    console.log('Array value1: '+ storedColors[1])
-    console.log('Array value2: '+ storedColors[2])
-    console.log('Citi in the array: '+ nameValue)
     document.getElementById("nameValueARRAY0").textContent = storedColors[0]
     document.getElementById("nameValueARRAY1").textContent = storedColors[1]
     document.getElementById("nameValueARRAY2").textContent = storedColors[2]
@@ -40,47 +27,87 @@ function callingtheArray(nameValue) {
     document.getElementById("nameValueARRAY7").textContent = storedColors[7]
     document.getElementById("nameValueARRAY8").textContent = storedColors[8]
 
-
     //This code is to get the local storage and have it saved when refreshing
     document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
 }
 
-
 //Function
 document.querySelector('form.input-group').addEventListener('submit', function (e) {
     e.preventDefault(); 
-    //Setting the local storage for the variable that was read
-    localStorage.setItem('name3', nameInput.value);
-    changeAPI()
-    printingValuesHTML()
+    changeAPI(uname.value)
     printingValues()
-    callingtheArray()
 });
 
 
 //Function
 function send() {
-    //Setting the local storage for the variable that was read
-    localStorage.setItem('name3', nameInput.value);
-    changeAPI()
-    printingValuesHTML()
+    changeAPI(uname.value)
     printingValues()
-    // callingtheArray()
 }
 
 
+//HOT CODE
+document.getElementById("nameValueARRAY0").addEventListener("click", displayDate0);
+document.getElementById("nameValueARRAY1").addEventListener("click", displayDate1);
+document.getElementById("nameValueARRAY2").addEventListener("click", displayDate2);
+document.getElementById("nameValueARRAY3").addEventListener("click", displayDate3);
+document.getElementById("nameValueARRAY4").addEventListener("click", displayDate4);
+document.getElementById("nameValueARRAY5").addEventListener("click", displayDate5);
+document.getElementById("nameValueARRAY6").addEventListener("click", displayDate6);
+document.getElementById("nameValueARRAY7").addEventListener("click", displayDate7);
+document.getElementById("nameValueARRAY8").addEventListener("click", displayDate8);
 
+//Testing reading the values
 //Function
-function printingValuesHTML (){
-    // Set Item
-    localStorage.setItem("Country Name: ", nameInput.value);
-    // Retrieve
-    document.getElementById("demo").innerHTML = localStorage.getItem("Country Name");
+function displayDate0() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[0]);
 }
+function displayDate1() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[1]);
+}
+function displayDate2() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[2]);
+}
+function displayDate3() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[3]);
+}
+function displayDate4() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[4]);
+}
+function displayDate5() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[5]);
+}
+function displayDate6() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[6]);
+}
+function displayDate7() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[7]);
+}
+function displayDate8() {
+    document.getElementById("demo").innerHTML = "Event Listener: " + changeAPI(myarr[8]);
+}
+//HOT CODE END
+
+
+
 
 // Function-Running API code 
-function changeAPI(){
-    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + uname.value + "&appid=" + APIKey + "&units=imperial")
+function changeAPI(localCityName){
+
+    // for (let i = 0; i < 5; i++) {
+    //     if (uname.value == myarr[i]){
+    //         console.log('The same City value: ' + myarr[i])
+    //         // alert('City is already used: ' + myarr[i])
+    //         //GOLD! The return will exit the function if it satifies the if statement!
+    //         //We have a city that is repeated!
+    //         // return;
+
+    //     }
+    // }
+
+    // var localCityName = "Laredo"
+    fetch(queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + localCityName + "&appid=" + APIKey + "&units=imperial")
+
     .then(response => response.json())
     .then (data => {
         const tempValue = data['main']['temp'];
@@ -90,16 +117,6 @@ function changeAPI(){
         const latitudeValue = data['coord']['lat'];
         const longitudeValue = data['coord']['lon'];
 
-
-        console.log(data)
-        console.log(tempValue)
-        console.log(nameValue)  
-        console.log(descValue)
-        console.log(windValue)     
-        console.log(latitudeValue)
-        console.log(longitudeValue)    
-        // console.log(data)
-        //Editing the HTML direcly 
         document.getElementById('tempValue').textContent = tempValue;
         document.getElementById("nameValue").textContent = nameValue
         document.getElementById("windValue").textContent = windValue
@@ -107,18 +124,26 @@ function changeAPI(){
 
         //We are calling the secondAPIcall
         secondAPIcall(latitudeValue,longitudeValue)
+
+        for (let i = 0; i < 5; i++) {
+            if (uname.value == myarr[i]){
+                console.log('THE SAME CITY VALUE: ' + myarr[i])
+                //GOLD! The return will exit the function if it satifies the if statement!
+                return;
+            }
+        }
+    
         callingtheArray(nameValue)
 
     })
     .catch(err => alert("Wrong city name"))
 }
 
+
 //Function second call
 function secondAPIcall(latitudeValue,longitudeValue){
-    console.log('Hello Second API: ' + latitudeValue + ' ' + longitudeValue )
     const latitude = latitudeValue;
     const longitude = longitudeValue;
-    console.log('Hello Second API, checking LAT AND LONG: ' + latitude + ' ' + longitude )
     fetch(queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKey + "&units=imperial") 
     
     .then(response => response.json())
@@ -168,7 +193,7 @@ function secondAPIcall(latitudeValue,longitudeValue){
         document.getElementById('humidity5').textContent = humidity5;
 
 
-        console.log('secondAPIcall is running!')
+        // console.log('secondAPIcall is running!')
         console.log(data)
 
     })
@@ -179,7 +204,7 @@ function secondAPIcall(latitudeValue,longitudeValue){
 
 //Function Printing Values
 function printingValues(){
-    console.log('Is this printing out!')
+    // console.log('Is this printing out!')
 }
 
 
